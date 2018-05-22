@@ -47,10 +47,10 @@ class CompaniesController < ApplicationController
       data = JSON.parse(open(url).read)
         @name = data["dataset"]["name"]
         @symbol = data["dataset"]["dataset_code"]
-        @price = data["dataset"]["data"].first(2)
-        @change = data["dataset"]["data"].first(3)
-        @changepercentage = data["dataset"]["data"].first(4)
-        @marketcap = data["dataset"]["data"].first(2) * data["dataset"]["data"].first(11)
+        @price = data["dataset"]["data"][0]
+        @change = data["dataset"]["data"][3]
+        @changepercentage = data["dataset"]["data"][4]
+        @marketcap = data["dataset"]["data"][2] * data["dataset"]["data"][11]
       # return companies
       list = Company.where("name" => @name)
         # redirect them to the show page for that company so they can add that company to the database from there
