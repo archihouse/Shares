@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans');
+
+body, html {
+  background-image: url("https://www.nationalgeographic.com/content/dam/magazine/rights-exempt/2015/12/new-york/01nyskyline2048.jpg");
+  height: 100%;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: 'Fira Sans', sans-serif;
+}
+
+.container {
+  max-width: 960px;
+  min-height: 100%;
+  margin: 0 auto;
+  background-color: #fff;
+  opacity: 0.9;
+  padding: 50px;
+  border: 2px solid white;
+}
+
+.login {
+  max-width: 960px;
+  margin: 0 auto;
+  text-align: right;
+  background-color: #fff;
+  opacity: 0.9;
+  padding: 0 50px 10px 50px;
+  border: 2px solid white;
+}
+
+.form {
+  max-width: 60em;
+  margin: 10px auto;
+  padding: 16px;
+  background: #00a9ce;
+  color: #FFFFFF;
+}
+
+.thumb {
+  max-height: 10em;
+}
+
+.feature {
+  max-width: 100%;
+}

@@ -1,6 +1,5 @@
-require 'open-uri'
-
 class CompaniesController < ApplicationController
+
   def index
     @companies = Company.all
 

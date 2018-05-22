@@ -1,6 +1,6 @@
 <%= form_with(model: company, local: true) do |form| %>
   <% if company.errors.any? %>
-    <div id="error_explanation">
+    <div id="error">
       <h2><%= pluralize(company.errors.count, "error") %> prohibited this stock from being saved:</h2>
 
       <ul>

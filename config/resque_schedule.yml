@@ -1,0 +1,7 @@
+---
+CompaniesController:
+  every:
+    - 10s
+  class: CompaniesController
+  queue: my_queue
+  description: This job will read and save data from the api every 10 seconds
