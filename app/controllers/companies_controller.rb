@@ -14,7 +14,7 @@ class CompaniesController < ApplicationController
   def show
   end
 
-  # GET /games/new
+  # GET /company/new
   def new
     @company = Company.new
   end
@@ -37,7 +37,7 @@ class CompaniesController < ApplicationController
         @exchange = data["primaryExchange"]
       # return companies
       list = Company.where("companyName" => @name)
-        # redirect them to the show page for that boardgame so they can add that game to their shelf from there
+        # redirect them to the show page for that company so they can add that company to the database from there
           @company = Company.create(:name => @name, :symbol => @symbol, :price => @price, :change => @change, :changepercentage => @changepercentage, :marketcap => @marketcap, :high => @high, :low => @low, :ytd => @ytd,
             :exchange => @exchange)
       end
@@ -55,12 +55,12 @@ class CompaniesController < ApplicationController
         @marketcap = data["dataset"]["data"].first(2) * data["dataset"]["data"].first(11)
       # return companies
       list = Company.where("name" => @name)
-        # redirect them to the show page for that boardgame so they can add that game to their shelf from there
+        # redirect them to the show page for that company so they can add that company to the database from there
           @company = Company.create(:name => @name, :symbol => @symbol, :price => @price, :change => @change, :changepercentage => @changepercentage, :marketcap => @marketcap, :exchange => @exchange)
       end
 
-    # POST /games
-    # POST /games.json
+    # POST /companies
+    # POST /companies.json
     def create
       @company = Company.new(company_params)
 
@@ -75,8 +75,8 @@ class CompaniesController < ApplicationController
       end
     end
 
-    # PATCH/PUT /games/1
-    # PATCH/PUT /games/1.json
+    # PATCH/PUT /companies/1
+    # PATCH/PUT /companies/1.json
     def update
       respond_to do |format|
         if @company.update(company_params)
@@ -89,8 +89,8 @@ class CompaniesController < ApplicationController
       end
     end
 
-    # DELETE /games/1
-    # DELETE /games/1.json
+    # DELETE /companies/1
+    # DELETE /companies/1.json
     def destroy
       @company.destroy
       respond_to do |format|
