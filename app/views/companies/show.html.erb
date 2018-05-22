@@ -1,0 +1,16 @@
+<h1><%= @company.name %></h1> <!-- Show name of Company at top of the page -->
+
+<ul> <!-- Create list of Company info -->
+  <li><p>Symbol:  <%= @company.symbol %></p></li> <!-- Show stock symbol of company -->
+  <li><p>Country:  <%= @company.country %></p></li> <!-- Show country home base of company -->
+  <li><p>Price:  <%= @company.price %></p></li> <!-- Show company stock price -->
+  <li><p>Day Price Change:  <%= @company.change %></p></li> <!-- Show company stock price daily change -->
+  <li><p>Day Percentage Change:  <%= @company.changepercentage %></p></li> <!-- Show company stock price daily change -->
+  <li><p>Market Cap:  <%= @company.marketcap %></p></li> <!-- Show company market cap -->
+  <li><p>52 Week High:  <%= @company.high %></p></li> <!-- Show stock 52 week high price -->
+  <li><p>52 Week Low:  <%= @company.low %></p></li> <!-- Show stock 52 week low price -->
+  <li><p>YTD:  <%= @company.ytd %></p></li> <!-- Show stock YTD change -->
+  <li><p>Industry:  <%= @company.industry %></p></li> <!-- Show company industry -->
+  <li><p>Exchange:  <%= @company.exchange %></p></li> <!-- Show company exchange -->
+  <li><p>Indices:  <%= @company.index.name %></p></li> <!-- Show company indices -->
+</ul>

@@ -1,0 +1,7 @@
+<h1><%= @exchange.name %></h1> <!-- Show name of Exchange at top of the page -->
+
+<ul> <!-- Create list of Exchange info -->
+  <li><p>City:  <%= @exchange.city %></p></li> <!-- Show home city of exchange -->
+  <li><p>Country:  <%= @exchange.country %></p></li> <!-- Show home country of exchange -->
+  <li><p>Companies:  <%= @exchange.company.name %></p></li> <!-- Show companies within the exchange -->
+</ul>

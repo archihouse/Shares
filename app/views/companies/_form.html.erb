@@ -1,0 +1,82 @@
+<%= form_with(model: company, local: true) do |form| %>
+  <% if company.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(company.errors.count, "error") %> prohibited this stock from being saved:</h2>
+
+      <ul>
+      <% company.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.string_field :name, id: :company_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :symbol %>
+    <%= form.string_field :symbol, id: :company_symbol %>
+  </div>
+
+  <div class="field">
+    <%= form.label :price %>
+    <%= form.numeric_field :price, id: :company_price %>
+  </div>
+
+  <div class="field">
+    <%= form.label :change %>
+    <%= form.numeric_field :change, id: :company_change %>
+  </div>
+
+  <div class="field">
+    <%= form.label :changepercentage %>
+    <%= form.numeric_field :changepercentage, id: :company_changepercentage %>
+  </div>
+
+  <div class="field">
+    <%= form.label :marketcap %>
+    <%= form.numeric_field :marketcap, id: :company_marketcap %>
+  </div>
+
+  <div class="field">
+    <%= form.label :high %>
+    <%= form.numeric_field :high, id: :company_high %>
+  </div>
+
+  <div class="field">
+    <%= form.label :low %>
+    <%= form.numeric_field :low, id: :company_low %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ytd %>
+    <%= form.numeric_field :ytd, id: :company_ytd %>
+  </div>
+
+  <div class="field">
+    <%= form.label :industry %>
+    <%= form.string_field :industry, id: :company_industry %>
+  </div>
+
+  <div class="field">
+    <%= form.label :exchange %>
+    <%= form.string_field :exchange, id: :company_exchange %>
+  </div>
+
+  <div class="field">
+    <%= form.label :index %>
+    <%= form.string_field :index, id: :company_index %>
+  </div>
+
+  <div class="field">
+    <%= form.label :country %>
+    <%= form.string_field :country, id: :company_country %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

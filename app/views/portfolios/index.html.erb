@@ -1,0 +1,10 @@
+<h1>Portfolios</h1>
+
+<% @portfolios.each do |portfolio| %>
+
+<ul>
+  <li><p>Name:  <%= link_to portfolio.name, portfolio %></p></li> <!-- provides both name of index and link to portfolio show page -->
+  <li><p>Companies:  <%= link_to portfolio.company.name, portfolio.company %></p></li> <!-- companies within portfolio provided by db -->
+</ul>
+
+<% end %>

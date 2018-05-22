@@ -1,0 +1,24 @@
+<h1>Sign Up</h1>
+
+<% if @user.errors.any? %> <!-- If user makes an error on sign up page, let them know about the mistake-->
+  <ol>
+    <% @user.errors.full_messages.each do |msg| %> <!-- Shows the relevant message for what type of mistake it is -->
+      <li><%= msg.capitalize %></li> <!-- Capitalizes the first letter of the string (first word) for the error message -->
+    <% end %>
+  </ol>
+<% end %>
+
+<%= form_for @user do |f| %> <!-- Set up User Sign Up form --> <!-- form for is to be set up to CRUD database, form helper used -->
+<div class="form">
+  <%= f.label :email %> <!-- Label 'email' for box description -->
+  <%= f.email_field :email, :required => true %> <!-- Set up field box for email input --> <!-- requirement 'true' for compulsory email address -->
+
+  <%= f.label :password %> <!-- Label 'password' for box description -->
+  <%= f.password_field :password %> <!-- Set up field box for initial password input -->
+
+  <%= f.label :password_confirmation %> <!-- Label 'password confirmation' for box description -->
+  <%= f.password_field :password_confirmation %> <!-- Set up field box for password confirmation input -->
+
+  <%= f.submit "Sign up!" %> <!-- Set up submit button with 'Sign Up!' as the description-->
+</div>
+<% end %>

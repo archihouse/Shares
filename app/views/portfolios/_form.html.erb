@@ -1,0 +1,15 @@
+<%= form_for @portfolio do |f| %> <!-- helper is in the controller as strong params -->
+<div class="form">
+  <p>
+    <%= f.label :name %>
+    <%= f.text_field :name, :autofocus => true %> <!-- auto focus onto the first field for text input once page is loaded -->
+  </p>
+  <p>
+    <%= f.label :company_id %>
+    <%= f.select :company_id, Company.pluck(:name, :id), :include_blank => true %> <!-- provides a selection of Companies that can be linked to the portfolio being created -->
+  </p>
+</div>
+<div class="button">
+<%= f.submit %> <!-- creates submit button for the form field created above -->
+</div>
+<% end %>

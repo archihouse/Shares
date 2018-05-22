@@ -1,0 +1,12 @@
+<h1>Exchanges</h1>
+
+<% @exchanges.each do |exchange| %>
+
+<ul>
+  <li><p>Name:  <%= link_to exchange.name, exchange %></p></li> <!-- provides both name of exchange and link to exchange show page -->
+  <li><p>City:  <%= exchange.city %></p></li> <!-- city provided from database -->
+  <li><p>Country:  <%= exchange.country %></p></li> <!-- country provided from database -->
+  <li><p>Companies:  <%= link_to exchange.company.name, exchange.company %></p></li> <!-- provides both name of companies within the exchange and link to companies show page -->
+</ul>
+
+<% end %>

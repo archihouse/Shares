@@ -1,0 +1,12 @@
+<h1><%= @portfolio.name %></h1> <!-- Show name of Portfolio at top of the page -->
+
+<ul> <!-- Create list of Portfolio info -->
+  <li><p>Companies:  <%= @portfolio.company.name %></p></li> <!-- Show companies within the portfolio -->
+</ul>
+
+<% if @current_user.present? %>
+<div class="controls"> <!-- div class for edit and delete buttons -->
+  <%= link_to 'Edit Portfolio', edit_portfolio_path(@portfolio) %> <!-- create link (link_to) to 'Edit Portfolio' and sets connection to @portfolio values to edit portfolio as necessary -->
+  <%= link_to 'Delete Portfolio', @portfolio, :method => 'delete', :data => { :confirm => 'Are you sure?' }%> <!-- create link (link_to) to 'Delete Portfolio', runs 'delete' method on @portfolio, then runs the confirmation question as a data event -->
+</div>
+<% end %>

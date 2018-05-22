@@ -1,0 +1,73 @@
+<h1>Stocks</h1>
+
+<div>
+<div class="stock">
+<form action="/companies/result">
+  <!-- <label>Enter a board game:</label> -->
+  <h3>Add US Stocks</h3>
+  <input class="form-control" type="text" name="symbol" placeholder="e.g. AAPL" required autofocus=true></input>
+  <button class="btn btn-default">Search</button>
+  <div class="stop-right-there">
+    <%= flash[:notice] %>
+  </div>
+</form>
+
+<form action="/companies/hk_result">
+  <!-- <label>Enter a board game:</label> -->
+  <h3>Add HK Stocks</h3>
+  <input class="form-control" type="text" name="symbol" placeholder="e.g. 00001" required autofocus=true></input>
+  <button class="btn btn-default">Search</button>
+  <div class="stop-right-there">
+    <%= flash[:notice] %>
+  </div>
+</form>
+
+
+
+</div>
+
+<div>
+  <%= link_to "Clear Search", companies_path, class: 'btn btn-default' %>
+</div>
+</div>
+
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Symbol</th>
+      <th>Price</th>
+      <th>Day Price Change</th>
+      <th>Day Percentage Change</th>
+      <th>Market Cap</th>
+      <th>52 Week High</th>
+      <th>52 Week Low</th>
+      <th>YTD</th>
+      <th>Exchange</th>
+      <th>Industry</th>
+      <th>Index</th>
+      <th>Country</th>
+
+      <!-- <th>Image</th> -->
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+<tbody>
+  <% @companies.each do |company| %>
+    <tr>
+      <td><p><%= link_to company.name, company %></p></td> <!-- provides both name of company and link to company show page -->
+      <td><p><%= company.symbol %></p></td> <!-- symbol provided from api -->
+      <td><p>$<%= number_with_precision(company.price, :delimiter => ',', :precision => 2) %></p></td> <!-- price provided from api -->
+      <td><p>$<%= number_with_precision(company.change, :delimiter => ',', :precision => 2) %></p></td> <!-- price change provided from api -->
+      <td><p><%= number_to_percentage(company.changepercentage, :precision => 2) %></p></td> <!-- price change provided from api -->
+      <td><p>$<%= number_with_precision(company.marketcap, :delimiter => ',', :strip_insignificant_zeros => true) %></p></td> <!-- market cap provided from api -->
+      <td><p>$<%= number_with_precision(company.high, :delimiter => ',', :precision => 2) %></p></td> <!-- 52 week high price provided from api -->
+      <td><p>$<%= number_with_precision(company.low, :delimiter => ',', :precision => 2) %></p></td> <!-- 52 week low price provided from api -->
+      <td><p><%= number_to_percentage(company.ytd, :precision => 2) %></p></td> <!-- ytd price provided from api -->
+      <td><p><%= company.exchange %></p></td> <!-- country provided from api -->
+    </tr>
+  <% end %>
+</tbody>
+</table>

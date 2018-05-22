@@ -1,0 +1,16 @@
+<h1>Log In</h1>
+
+<h2><%= flash[:error] %></h2> <!-- Flash error appears when login and password is invalid -->
+
+<%= form_tag login_path do %> <!-- form tag is just to check if same password is being used as previously -->
+                              <!-- this is set up for the login path -->
+<div class="form">
+  <%= label_tag :email %> <!-- Label 'email' for box description -->
+  <%= email_field_tag :email %> <!-- Set up field box for email input -->
+
+  <%= label_tag :password %> <!-- Label 'password' for box description -->
+  <%= password_field_tag :password %> <!-- Set up field box for password input -->
+
+  <%= submit_tag "Log In" %> <!-- Submit box for login -->
+</div>
+<% end %>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Project Server</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+      <div class="login">
+        <nav>
+        <% if @current_user.present? %> <!-- if user is logged in, has the option to logout -->
+          <%= link_to "Sign Out #{ @current_user.email }", login_path, :method => 'delete' %> <!-- delete request to sign out user -->
+          <% else %> <!-- if user is logged out, has the option to login or sign in -->
+        <%= link_to 'Sign Up', new_user_path %>  <!-- sign up link -->
+        <%= link_to 'Sign In', login_path %> <!-- sign in link -->
+        <% end %>
+      </nav>
+    </div>
+      <div class="container">
+      <nav>
+        <%= link_to 'Home', root_path %> <!-- home link to go to home page -->
+        |
+        <% if @current_user.present? %>
+          <%= link_to 'Your Portfolio', portfolios_path %> <!-- link to add new portfolio only if logged in first -->
+          |
+          <%= link_to 'Create Portfolio', new_portfolio_path %> <!-- link to add new portfolio only if logged in first -->
+        <% end %>
+        |
+        <%= link_to 'All Stocks', companies_path %> <!-- All Stocks view at any login status -->
+        |
+        <%= link_to 'All Indices', indices_path %> <!-- All Indices view at any login status -->
+        |
+        <%= link_to 'All Exchanges', exchanges_path %> <!-- All Exchanges view at any login status -->
+        |
+        <%= link_to 'All Industries', industries_path %> <!-- All Industries view at any login status -->
+      </nav>
+      <%= yield %>
+    </div>
+    </body>
+</html>
