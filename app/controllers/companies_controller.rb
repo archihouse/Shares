@@ -1,6 +1,8 @@
+require 'open-uri'
+
 class CompaniesController < ApplicationController
   def index
-    @companies = Company.all
+    @companies = Company.order(params[:sort])
 
     # Search/filter our database
     if params[:name]
@@ -47,7 +49,7 @@ class CompaniesController < ApplicationController
       data = JSON.parse(open(url).read)
         @name = data["dataset"]["name"]
         @symbol = data["dataset"]["dataset_code"]
-        @price = data["dataset"]["data"][0]
+        @price = data["dataset"]["data"][2]
         @change = data["dataset"]["data"][3]
         @changepercentage = data["dataset"]["data"][4]
         @marketcap = data["dataset"]["data"][2] * data["dataset"]["data"][11]

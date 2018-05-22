@@ -8848,3 +8848,187 @@ Processing by CompaniesController#index as HTML
 Completed 200 OK in 79ms (Views: 75.6ms | ActiveRecord: 0.6ms)
 
 
+Started GET "/companies" for 127.0.0.1 at 2018-05-23 09:33:21 +1000
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CompaniesController#index as HTML
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 0.0ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 1, expected 0)):
+  
+app/controllers/companies_controller.rb:5:in `index'
+Started GET "/companies" for 127.0.0.1 at 2018-05-23 09:33:59 +1000
+Processing by CompaniesController#index as HTML
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.0ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 1, expected 0)):
+  
+app/controllers/companies_controller.rb:5:in `index'
+Started GET "/companies" for 127.0.0.1 at 2018-05-23 09:38:15 +1000
+Processing by CompaniesController#index as HTML
+  Rendering companies/index.html.erb within layouts/application
+  [1m[36mCompany Load (0.8ms)[0m  [1m[34mSELECT "companies".* FROM "companies"[0m
+  Rendered companies/index.html.erb within layouts/application (68.9ms)
+Completed 200 OK in 315ms (Views: 294.3ms | ActiveRecord: 10.1ms)
+
+
+Started GET "/companies/result?symbol=aapl" for 127.0.0.1 at 2018-05-23 09:38:21 +1000
+Processing by CompaniesController#result as HTML
+  Parameters: {"symbol"=>"aapl"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+Errno::ENOENT (No such file or directory @ rb_sysopen - https://api.iextrading.com/1.0/stock/aapl/quote):
+  
+app/controllers/companies_controller.rb:26:in `initialize'
+app/controllers/companies_controller.rb:26:in `open'
+app/controllers/companies_controller.rb:26:in `result'
+Started GET "/companies" for 127.0.0.1 at 2018-05-23 09:39:11 +1000
+Processing by CompaniesController#index as HTML
+  Rendering companies/index.html.erb within layouts/application
+  [1m[36mCompany Load (0.4ms)[0m  [1m[34mSELECT "companies".* FROM "companies"[0m
+  Rendered companies/index.html.erb within layouts/application (37.1ms)
+Completed 200 OK in 95ms (Views: 82.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/companies/result?symbol=aapl" for 127.0.0.1 at 2018-05-23 09:39:14 +1000
+Processing by CompaniesController#result as HTML
+  Parameters: {"symbol"=>"aapl"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+Errno::ENOENT (No such file or directory @ rb_sysopen - https://api.iextrading.com/1.0/stock/aapl/quote):
+  
+app/controllers/companies_controller.rb:25:in `initialize'
+app/controllers/companies_controller.rb:25:in `open'
+app/controllers/companies_controller.rb:25:in `result'
+Started GET "/companies" for 127.0.0.1 at 2018-05-23 09:39:40 +1000
+Processing by CompaniesController#index as HTML
+  Rendering companies/index.html.erb within layouts/application
+  [1m[36mCompany Load (0.4ms)[0m  [1m[34mSELECT "companies".* FROM "companies"[0m
+  Rendered companies/index.html.erb within layouts/application (40.8ms)
+Completed 200 OK in 78ms (Views: 65.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/companies/result?symbol=aapl" for 127.0.0.1 at 2018-05-23 09:39:43 +1000
+Processing by CompaniesController#result as HTML
+  Parameters: {"symbol"=>"aapl"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "companies" ("name", "symbol", "price", "change", "changepercentage", "marketcap", "high", "low", "ytd", "exchange", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", "Apple Inc."], ["symbol", "AAPL"], ["price", "187.16"], ["change", "-0.47"], ["changepercentage", "-0.25"], ["marketcap", "919917228080.0"], ["high", "190.37"], ["low", "142.2"], ["ytd", "9.78838687782143"], ["exchange", "Nasdaq Global Select"], ["created_at", "2018-05-22 23:39:44.389725"], ["updated_at", "2018-05-22 23:39:44.389725"]]
+  [1m[35m (7.2ms)[0m  [1m[35mCOMMIT[0m
+  Rendering companies/result.html.erb within layouts/application
+  Rendered companies/result.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 1066ms (Views: 36.3ms | ActiveRecord: 8.8ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2018-05-23 09:39:45 +1000
+Processing by CompaniesController#index as HTML
+  Rendering companies/index.html.erb within layouts/application
+  [1m[36mCompany Load (1.0ms)[0m  [1m[34mSELECT "companies".* FROM "companies"[0m
+  Rendered companies/index.html.erb within layouts/application (44.6ms)
+Completed 200 OK in 73ms (Views: 69.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2018-05-23 09:40:23 +1000
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CompaniesController#index as HTML
+  Rendering companies/index.html.erb within layouts/application
+  [1m[36mCompany Load (1.0ms)[0m  [1m[34mSELECT "companies".* FROM "companies"[0m
+  Rendered companies/index.html.erb within layouts/application (64.3ms)
+Completed 500 Internal Server Error in 921ms (ActiveRecord: 5.9ms)
+
+
+  
+ActionView::Template::Error (couldn't find file 'turbolinks' with type 'application/javascript'
+Checked in these paths: 
+  /Users/jameskim/Projects/final/project_server/app/assets/config
+  /Users/jameskim/Projects/final/project_server/app/assets/images
+  /Users/jameskim/Projects/final/project_server/app/assets/javascripts
+  /Users/jameskim/Projects/final/project_server/app/assets/stylesheets
+  /Users/jameskim/.rvm/gems/ruby-2.4.1/gems/coffee-rails-4.2.2/lib/assets/javascripts
+  /Users/jameskim/.rvm/gems/ruby-2.4.1/gems/actioncable-5.1.6/lib/assets/compiled
+  /Users/jameskim/.rvm/gems/ruby-2.4.1/gems/actionview-5.1.6/lib/assets/compiled
+  /Users/jameskim/Projects/final/project_server/node_modules):
+    4:     <title>Project Server</title>
+    5:     <%= csrf_meta_tags %>
+    6: 
+    7:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    8:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    9:   </head>
+   10: 
+  
+app/assets/javascripts/application.js:14
+app/views/layouts/application.html.erb:7:in `_app_views_layouts_application_html_erb__1254093560235409874_70316602592180'
+Started GET "/companies" for 127.0.0.1 at 2018-05-23 09:40:51 +1000
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CompaniesController#index as HTML
+  Rendering companies/index.html.erb within layouts/application
+  [1m[36mCompany Load (1.3ms)[0m  [1m[34mSELECT "companies".* FROM "companies"[0m
+  Rendered companies/index.html.erb within layouts/application (77.2ms)
+Completed 200 OK in 531ms (Views: 495.9ms | ActiveRecord: 8.8ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2018-05-23 09:52:05 +1000
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CompaniesController#index as HTML
+Completed 500 Internal Server Error in 26ms (ActiveRecord: 0.0ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 1, expected 0)):
+  
+app/controllers/companies_controller.rb:5:in `index'
+Started GET "/companies" for 127.0.0.1 at 2018-05-23 09:54:44 +1000
+Processing by CompaniesController#index as HTML
+  Rendering companies/index.html.erb within layouts/application
+  [1m[36mCompany Load (0.8ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Company Load (0.0ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Company Load (0.0ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Company Load (0.0ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" LIMIT $1[0m  [["LIMIT", 11]]
+  Rendered companies/index.html.erb within layouts/application (129.4ms)
+Completed 500 Internal Server Error in 147ms (ActiveRecord: 7.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `sortable' for #<#<Class:0x007fa7ce11e338>:0x007fa7ce11c240>):
+    27: <table class="table">
+    28:   <thead>
+    29:     <tr>
+    30:       <th><%= sortable "Name" %></th>
+    31:       <th><%= sortable "Symbol" %></th>
+    32:       <th><%= sortable "Price" %></th>
+    33:       <th><%= sortable "Day Price Change" %></th>
+  
+app/views/companies/index.html.erb:30:in `_app_views_companies_index_html_erb___2716022482350731343_70179346774120'
+Started GET "/companies" for 127.0.0.1 at 2018-05-23 09:57:26 +1000
+Processing by CompaniesController#index as HTML
+  Rendering companies/index.html.erb within layouts/application
+  [1m[36mCompany Load (1.0ms)[0m  [1m[34mSELECT "companies".* FROM "companies"[0m
+  Rendered companies/index.html.erb within layouts/application (43.3ms)
+Completed 200 OK in 921ms (Views: 917.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/companies/result?symbol=aapl" for 127.0.0.1 at 2018-05-23 09:57:31 +1000
+Processing by CompaniesController#result as HTML
+  Parameters: {"symbol"=>"aapl"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (2.0ms)[0m  [1m[32mINSERT INTO "companies" ("name", "symbol", "price", "change", "changepercentage", "marketcap", "high", "low", "ytd", "exchange", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", "Apple Inc."], ["symbol", "AAPL"], ["price", "187.16"], ["change", "-0.47"], ["changepercentage", "-0.25"], ["marketcap", "919917228080.0"], ["high", "190.37"], ["low", "142.2"], ["ytd", "9.78838687782143"], ["exchange", "Nasdaq Global Select"], ["created_at", "2018-05-22 23:57:33.037470"], ["updated_at", "2018-05-22 23:57:33.037470"]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  Rendering companies/result.html.erb within layouts/application
+  Rendered companies/result.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 1684ms (Views: 28.4ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2018-05-23 09:57:34 +1000
+Processing by CompaniesController#index as HTML
+  Rendering companies/index.html.erb within layouts/application
+  [1m[36mCompany Load (0.5ms)[0m  [1m[34mSELECT "companies".* FROM "companies"[0m
+  Rendered companies/index.html.erb within layouts/application (42.3ms)
+Completed 200 OK in 74ms (Views: 71.4ms | ActiveRecord: 0.5ms)
+
+
