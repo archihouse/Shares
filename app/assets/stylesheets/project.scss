@@ -10,8 +10,16 @@ body, html {
   font-family: 'Fira Sans', sans-serif;
 }
 
+tr {
+  border: 1px solid black;
+}
+
+td {
+  border: 1px solid black;
+}
+
 .container {
-  max-width: 960px;
+  max-width: 1080px;
   min-height: 100%;
   margin: 0 auto;
   background-color: #fff;
@@ -21,7 +29,7 @@ body, html {
 }
 
 .login {
-  max-width: 960px;
+  max-width: 1080px;
   margin: 0 auto;
   text-align: right;
   background-color: #fff;
