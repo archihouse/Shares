@@ -16910,3 +16910,151 @@ ActionView::Template::Error (undefined method `name' for nil:NilClass):
     4:   <li><p>Symbol:  <%= @company.symbol %></p></li> <!-- Show stock symbol of company -->
   
 app/views/companies/show.html.erb:1:in `_app_views_companies_show_html_erb___421941150723141130_70291498102740'
+Started GET "/" for 127.0.0.1 at 2018-05-23 14:22:06 +1000
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 299ms (Views: 290.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2018-05-23 14:22:08 +1000
+Processing by CompaniesController#index as HTML
+  Rendering companies/index.html.erb within layouts/application
+  [1m[36mCompany Load (1.5ms)[0m  [1m[34mSELECT "companies".* FROM "companies" ORDER BY name desc[0m
+  Rendered companies/index.html.erb within layouts/application (81.2ms)
+Completed 200 OK in 178ms (Views: 105.6ms | ActiveRecord: 20.4ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-05-23 14:22:11 +1000
+Processing by SessionController#new as HTML
+  Rendering session/new.html.erb within layouts/application
+  Rendered session/new.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 41ms (Views: 37.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2018-05-23 14:22:13 +1000
+Processing by SessionController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ApCpJdVakWU8BkVH90CbXkQeeQdKaWT3sRpH26rH1STihMn4IHtJqIOFNkRdsg6iz+9Iu9get+bJqN2srQynrA==", "email"=>"james.han.kim@gmail.com", "password"=>"[FILTERED]", "commit"=>"Log In"}
+  [1m[36mUser Load (3.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "james.han.kim@gmail.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 89ms (ActiveRecord: 9.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-05-23 14:22:13 +1000
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 43ms (Views: 39.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2018-05-23 14:22:15 +1000
+Processing by CompaniesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering companies/index.html.erb within layouts/application
+  [1m[36mCompany Load (0.9ms)[0m  [1m[34mSELECT "companies".* FROM "companies" ORDER BY name desc[0m
+  Rendered companies/index.html.erb within layouts/application (68.6ms)
+Completed 200 OK in 101ms (Views: 95.9ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/companies/result?symbol=pg" for 127.0.0.1 at 2018-05-23 14:22:18 +1000
+Processing by CompaniesController#result as HTML
+  Parameters: {"symbol"=>"pg"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.9ms)
+
+
+  
+Errno::ENOENT (No such file or directory @ rb_sysopen - https://api.iextrading.com/1.0/stock/pg/quote):
+  
+app/controllers/companies_controller.rb:27:in `initialize'
+app/controllers/companies_controller.rb:27:in `open'
+app/controllers/companies_controller.rb:27:in `result'
+Started GET "/companies" for 127.0.0.1 at 2018-05-23 14:22:34 +1000
+Processing by CompaniesController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering companies/index.html.erb within layouts/application
+  [1m[36mCompany Load (0.6ms)[0m  [1m[34mSELECT "companies".* FROM "companies" ORDER BY name desc[0m
+  Rendered companies/index.html.erb within layouts/application (41.4ms)
+Completed 200 OK in 75ms (Views: 70.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/companies/result?symbol=pg" for 127.0.0.1 at 2018-05-23 14:22:37 +1000
+Processing by CompaniesController#result as HTML
+  Parameters: {"symbol"=>"pg"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.3ms)
+
+
+  
+Errno::ENOENT (No such file or directory @ rb_sysopen - https://api.iextrading.com/1.0/stock/pg/quote):
+  
+app/controllers/companies_controller.rb:27:in `initialize'
+app/controllers/companies_controller.rb:27:in `open'
+app/controllers/companies_controller.rb:27:in `result'
+Started GET "/companies/result?symbol=pg" for 127.0.0.1 at 2018-05-23 14:22:55 +1000
+Processing by CompaniesController#result as HTML
+  Parameters: {"symbol"=>"pg"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.4ms)
+
+
+  
+Errno::ENOENT (No such file or directory @ rb_sysopen - https://api.iextrading.com/1.0/stock/pg/quote):
+  
+app/controllers/companies_controller.rb:27:in `initialize'
+app/controllers/companies_controller.rb:27:in `open'
+app/controllers/companies_controller.rb:27:in `result'
+Started GET "/companies" for 127.0.0.1 at 2018-05-23 14:23:54 +1000
+Processing by CompaniesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering companies/index.html.erb within layouts/application
+  [1m[36mCompany Load (1.0ms)[0m  [1m[34mSELECT "companies".* FROM "companies" ORDER BY name desc[0m
+  Rendered companies/index.html.erb within layouts/application (65.9ms)
+Completed 200 OK in 131ms (Views: 97.9ms | ActiveRecord: 12.1ms)
+
+
+Started GET "/companies/result?symbol=pg" for 127.0.0.1 at 2018-05-23 14:23:58 +1000
+Processing by CompaniesController#result as HTML
+  Parameters: {"symbol"=>"pg"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.4ms)
+
+
+  
+Errno::ENOENT (No such file or directory @ rb_sysopen - https://api.iextrading.com/1.0/stock/pg/quote):
+  
+app/controllers/companies_controller.rb:27:in `initialize'
+app/controllers/companies_controller.rb:27:in `open'
+app/controllers/companies_controller.rb:27:in `result'
+Started GET "/companies" for 127.0.0.1 at 2018-05-23 14:24:09 +1000
+Processing by CompaniesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering companies/index.html.erb within layouts/application
+  [1m[36mCompany Load (0.7ms)[0m  [1m[34mSELECT "companies".* FROM "companies" ORDER BY name desc[0m
+  Rendered companies/index.html.erb within layouts/application (72.6ms)
+Completed 200 OK in 144ms (Views: 112.5ms | ActiveRecord: 10.2ms)
+
+
+Started GET "/companies/result?symbol=pg" for 127.0.0.1 at 2018-05-23 14:24:11 +1000
+Processing by CompaniesController#result as HTML
+  Parameters: {"symbol"=>"pg"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.5ms)[0m  [1m[32mINSERT INTO "companies" ("name", "symbol", "price", "change", "changepercentage", "marketcap", "high", "low", "ytd", "exchange", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", "Procter & Gamble Company (The)"], ["symbol", "PG"], ["price", "74.03"], ["change", "-0.03"], ["changepercentage", "-0.041"], ["marketcap", "186155799208.0"], ["high", "94.67"], ["low", "70.73"], ["ytd", "-16.9503979717185"], ["exchange", "New York Stock Exchange"], ["created_at", "2018-05-23 04:24:16.781060"], ["updated_at", "2018-05-23 04:24:16.781060"]]
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  Rendering companies/result.html.erb within layouts/application
+  Rendered companies/result.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 5018ms (Views: 31.0ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2018-05-23 14:24:18 +1000
+Processing by CompaniesController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering companies/index.html.erb within layouts/application
+  [1m[36mCompany Load (1.1ms)[0m  [1m[34mSELECT "companies".* FROM "companies" ORDER BY name desc[0m
+  Rendered companies/index.html.erb within layouts/application (54.2ms)
+Completed 200 OK in 91ms (Views: 85.6ms | ActiveRecord: 1.6ms)
+
+
