@@ -1,8 +1,10 @@
 require 'open-uri'
 
 class CompaniesController < ApplicationController
+  helper_method :sort_column, :sort_direction
+
   def index
-    @companies = Company.order(params[:sort])
+    @companies = Company.order(sort_column + ' ' + sort_direction)
 
     # Search/filter our database
     if params[:name]
@@ -106,6 +108,14 @@ class CompaniesController < ApplicationController
       end
 
       def company_params
-      params.require(:company).permit(:name, :symbol, :price, :change, :changepercentage, :marketcap, :high, :low, :ytd, :exchange, :index, :country)
+        params.require(:company).permit(:name, :symbol, :price, :change, :changepercentage, :marketcap, :high, :low, :ytd, :exchange, :index, :country)
+      end
+
+      def sort_column
+        Company.column_names.include?(params[:sort]) ? params[:sort] : "name"
+      end
+
+      def sort_direction
+        %w[asc desc].include?(params[:direction]) ?  params[:direction] : "desc"
       end
   end

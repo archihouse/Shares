@@ -27,19 +27,19 @@
 <table class="table">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Symbol</th>
-      <th>Price</th>
-      <th>Day Price Change</th>
-      <th>Day Percentage Change</th>
-      <th>Market Cap</th>
-      <th>52 Week High</th>
-      <th>52 Week Low</th>
-      <th>YTD</th>
-      <th>Exchange</th>
-      <th>Industry</th>
-      <th>Index</th>
-      <th>Country</th>
+      <th><%= link_to "Name", :sort => "name" %></th>
+      <th><%= link_to "Symbol", :sort => "symbol" %></th>
+      <th><%= link_to "Price", :sort => "price" %></th>
+      <th><%= link_to "Day Price Change", :sort => "change" %></th>
+      <th><%= link_to "Day Percentage Change", :sort => "changepercentage" %></th>
+      <th><%= link_to "Market Cap", :sort => "marketcap" %></th>
+      <th><%= link_to "52 Week High", :sort => "high" %></th>
+      <th><%= link_to "52 Week Low", :sort => "low" %></th>
+      <th><%= link_to "YTD", :sort => "ytd" %></th>
+      <th><%= link_to "Exchange", :sort => "exchange" %></th>
+      <th><%= link_to "Industry" %></th>
+      <th><%= link_to "Index" %></th>
+      <th><%= link_to "Country" %></th>
     </tr>
   </thead>
 
