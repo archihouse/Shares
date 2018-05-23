@@ -1,5 +1,3 @@
-require 'open-uri'
-
 class CompaniesController < ApplicationController
   helper_method :sort_column, :sort_direction
 
@@ -56,10 +54,24 @@ class CompaniesController < ApplicationController
         @changepercentage = data["dataset"]["data"][4]
         @marketcap = data["dataset"]["data"][2] * data["dataset"]["data"][11]
       # return companies
-      list = Company.where("name" => @name)
+      list = Company.where("dataset.name" => @name)
         # redirect them to the show page for that company so they can add that company to the database from there
           @company = Company.create(:name => @name, :symbol => @symbol, :price => @price, :change => @change, :changepercentage => @changepercentage, :marketcap => @marketcap, :exchange => @exchange)
       end
+
+  def get_last_action_time
+    last_time = nil
+    begin
+      @company = Company.find_by_id(params[:id])
+      # Return the timestamp of the last action
+      last_time = (@company && !@company.endTime) ? @company.reloadTime.to_i : 0
+    rescue ActiveRecord::RecordNotFound
+      last_time = 0
+    end
+    # Stop bugging us after 30m, we should have moved on from this page
+    last_time==0 if (last_time!=0 && (milliseconds - last_time)>30*60*1000)
+    retun result: {last_action_time: last_time}
+  end
 
     # POST /companies
     # POST /companies.json
