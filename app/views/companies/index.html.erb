@@ -1,5 +1,5 @@
 <h1>Stocks</h1>
-
+<% if @current_user.present? %>
 <div>
 <div class="stock">
 <form action="/companies/result">
@@ -23,6 +23,7 @@
 </form>
 </div>
 </div>
+<% end %>
 
 <table class="table">
   <thead>
