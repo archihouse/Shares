@@ -22174,3 +22174,77 @@ Processing by CompaniesController#index as HTML
 Completed 200 OK in 95ms (Views: 64.0ms | ActiveRecord: 8.5ms)
 
 
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (3.6ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (154.8ms)[0m  [1m[35mDROP DATABASE IF EXISTS "project_server_development"[0m
+  [1m[35m (144.0ms)[0m  [1m[35mDROP DATABASE IF EXISTS "project_server_test"[0m
+  [1m[35m (18.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (8.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2166689702044917840)[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateCompanies (20180519152151)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (5.8ms)[0m  [1m[35mCREATE TABLE "companies" ("id" bigserial primary key, "name" character varying, "symbol" character varying, "country" character varying, "price" decimal, "change" decimal, "changepercentage" decimal, "marketcap" decimal, "high" decimal, "low" decimal, "ytd" decimal, "sector" character varying, "exchange" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180519152151"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePortfolios (20180519152305)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.9ms)[0m  [1m[35mCREATE TABLE "portfolios" ("id" bigserial primary key, "name" character varying, "user_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180519152305"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateIndices (20180519152321)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.4ms)[0m  [1m[35mCREATE TABLE "indices" ("id" bigserial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180519152321"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateIndustries (20180519152336)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.7ms)[0m  [1m[35mCREATE TABLE "industries" ("id" bigserial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180519152336"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateExchanges (20180519152351)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.0ms)[0m  [1m[35mCREATE TABLE "exchanges" ("id" bigserial primary key, "name" character varying, "country" character varying, "city" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180519152351"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateUsers (20180519152404)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (5.0ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180519152404"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateIndicesUsers (20180519152433)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "indices_users" ("index_id" integer, "user_id" integer)[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180519152433"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateCompaniesPortfolios (20180519152532)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE TABLE "companies_portfolios" ("company_id" integer, "portfolio_id" integer)[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180519152532"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateCompaniesIndices (20180519152829)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "companies_indices" ("company_id" integer, "index_id" integer)[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180519152829"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateCompaniesExchanges (20180519152906)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE "companies_exchanges" ("company_id" integer, "exchange_id" integer)[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180519152906"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddPasswordDigestToUsers (20180520094245)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "password_digest" character varying[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180520094245"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-06-04 23:56:04.248088"], ["updated_at", "2018-06-04 23:56:04.248088"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(2166689702044917840)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m

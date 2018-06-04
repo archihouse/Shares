@@ -13,7 +13,6 @@ class CreateCompanies < ActiveRecord::Migration[5.1]
       t.numeric :ytd
       t.string :sector
       t.string :exchange
-      t.numeric :industry_id
       t.timestamps
     end
   end

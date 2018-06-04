@@ -28,7 +28,6 @@ ActiveRecord::Schema.define(version: 20180520094245) do
     t.decimal "ytd"
     t.string "sector"
     t.string "exchange"
-    t.decimal "industry_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
