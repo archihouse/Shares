@@ -22044,3 +22044,12 @@ Processing by CompaniesController#index as HTML
 Completed 200 OK in 57ms (Views: 54.0ms | ActiveRecord: 0.6ms)
 
 
+Started GET "/companies" for 127.0.0.1 at 2018-06-05 09:17:50 +1000
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CompaniesController#index as HTML
+  Rendering companies/index.html.erb within layouts/application
+  [1m[36mCompany Load (1.1ms)[0m  [1m[34mSELECT "companies".* FROM "companies" ORDER BY name desc[0m
+  Rendered companies/index.html.erb within layouts/application (48.8ms)
+Completed 200 OK in 324ms (Views: 287.7ms | ActiveRecord: 7.7ms)
+
+
