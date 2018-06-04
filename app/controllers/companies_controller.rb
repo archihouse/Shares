@@ -127,7 +127,7 @@ class CompaniesController < ApplicationController
       end
 
       def company_params
-        params.require(:company).permit(:name, :symbol, :price, :change, :changepercentage, :marketcap, :high, :low, :ytd, :exchange, :index_id, :sector)
+        params.require(:company).permit(:name, :symbol, :price, :change, :changepercentage, :marketcap, :high, :low, :ytd, :exchange, :sector)
       end
 
       def sort_column

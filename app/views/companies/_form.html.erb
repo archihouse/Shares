@@ -55,11 +55,6 @@
     <%= form.text_field :exchange, id: :company_exchange %>
   </div>
 
-  <div class="field">
-    <%= form.label :index_id %>
-    <%= form.select :index_id, Index.pluck(:name, :id), :include_blank => true %>
-  </div>
-
   <div class="actions">
     <%= form.submit %>
   </div>

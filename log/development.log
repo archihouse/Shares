@@ -22053,3 +22053,124 @@ Processing by CompaniesController#index as HTML
 Completed 200 OK in 324ms (Views: 287.7ms | ActiveRecord: 7.7ms)
 
 
+Started GET "/companies" for 127.0.0.1 at 2018-06-05 09:26:19 +1000
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CompaniesController#index as HTML
+  Rendering companies/index.html.erb within layouts/application
+  [1m[36mCompany Load (0.8ms)[0m  [1m[34mSELECT "companies".* FROM "companies" ORDER BY name desc[0m
+  Rendered companies/index.html.erb within layouts/application (48.6ms)
+Completed 200 OK in 317ms (Views: 284.0ms | ActiveRecord: 6.5ms)
+
+
+Started GET "/companies?sort=sector" for 127.0.0.1 at 2018-06-05 09:26:22 +1000
+Processing by CompaniesController#index as HTML
+  Parameters: {"sort"=>"sector"}
+  Rendering companies/index.html.erb within layouts/application
+  [1m[36mCompany Load (1.6ms)[0m  [1m[34mSELECT "companies".* FROM "companies" ORDER BY sector desc[0m
+  Rendered companies/index.html.erb within layouts/application (38.0ms)
+Completed 200 OK in 70ms (Views: 57.9ms | ActiveRecord: 10.1ms)
+
+
+Started GET "/companies?sort=exchange" for 127.0.0.1 at 2018-06-05 09:26:23 +1000
+Processing by CompaniesController#index as HTML
+  Parameters: {"sort"=>"exchange"}
+  Rendering companies/index.html.erb within layouts/application
+  [1m[36mCompany Load (0.5ms)[0m  [1m[34mSELECT "companies".* FROM "companies" ORDER BY exchange desc[0m
+  Rendered companies/index.html.erb within layouts/application (22.9ms)
+Completed 200 OK in 60ms (Views: 57.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/companies?sort=ytd" for 127.0.0.1 at 2018-06-05 09:26:24 +1000
+Processing by CompaniesController#index as HTML
+  Parameters: {"sort"=>"ytd"}
+  Rendering companies/index.html.erb within layouts/application
+  [1m[36mCompany Load (0.9ms)[0m  [1m[34mSELECT "companies".* FROM "companies" ORDER BY ytd desc[0m
+  Rendered companies/index.html.erb within layouts/application (22.9ms)
+Completed 200 OK in 60ms (Views: 56.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/companies?sort=low" for 127.0.0.1 at 2018-06-05 09:26:25 +1000
+Processing by CompaniesController#index as HTML
+  Parameters: {"sort"=>"low"}
+  Rendering companies/index.html.erb within layouts/application
+  [1m[36mCompany Load (0.5ms)[0m  [1m[34mSELECT "companies".* FROM "companies" ORDER BY low desc[0m
+  Rendered companies/index.html.erb within layouts/application (22.8ms)
+Completed 200 OK in 63ms (Views: 60.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/companies?sort=high" for 127.0.0.1 at 2018-06-05 09:26:25 +1000
+Processing by CompaniesController#index as HTML
+  Parameters: {"sort"=>"high"}
+  Rendering companies/index.html.erb within layouts/application
+  [1m[36mCompany Load (1.0ms)[0m  [1m[34mSELECT "companies".* FROM "companies" ORDER BY high desc[0m
+  Rendered companies/index.html.erb within layouts/application (22.2ms)
+Completed 200 OK in 55ms (Views: 51.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/companies?sort=marketcap" for 127.0.0.1 at 2018-06-05 09:26:26 +1000
+Processing by CompaniesController#index as HTML
+  Parameters: {"sort"=>"marketcap"}
+  Rendering companies/index.html.erb within layouts/application
+  [1m[36mCompany Load (0.8ms)[0m  [1m[34mSELECT "companies".* FROM "companies" ORDER BY marketcap desc[0m
+  Rendered companies/index.html.erb within layouts/application (22.6ms)
+Completed 200 OK in 58ms (Views: 55.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/companies?sort=changepercentage" for 127.0.0.1 at 2018-06-05 09:26:27 +1000
+Processing by CompaniesController#index as HTML
+  Parameters: {"sort"=>"changepercentage"}
+  Rendering companies/index.html.erb within layouts/application
+  [1m[36mCompany Load (0.5ms)[0m  [1m[34mSELECT "companies".* FROM "companies" ORDER BY changepercentage desc[0m
+  Rendered companies/index.html.erb within layouts/application (23.6ms)
+Completed 200 OK in 56ms (Views: 53.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/companies?sort=change" for 127.0.0.1 at 2018-06-05 09:26:27 +1000
+Processing by CompaniesController#index as HTML
+  Parameters: {"sort"=>"change"}
+  Rendering companies/index.html.erb within layouts/application
+  [1m[36mCompany Load (0.8ms)[0m  [1m[34mSELECT "companies".* FROM "companies" ORDER BY change desc[0m
+  Rendered companies/index.html.erb within layouts/application (23.2ms)
+Completed 200 OK in 67ms (Views: 63.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/companies?sort=price" for 127.0.0.1 at 2018-06-05 09:26:28 +1000
+Processing by CompaniesController#index as HTML
+  Parameters: {"sort"=>"price"}
+  Rendering companies/index.html.erb within layouts/application
+  [1m[36mCompany Load (0.5ms)[0m  [1m[34mSELECT "companies".* FROM "companies" ORDER BY price desc[0m
+  Rendered companies/index.html.erb within layouts/application (21.4ms)
+Completed 200 OK in 56ms (Views: 52.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/companies?sort=symbol" for 127.0.0.1 at 2018-06-05 09:26:29 +1000
+Processing by CompaniesController#index as HTML
+  Parameters: {"sort"=>"symbol"}
+  Rendering companies/index.html.erb within layouts/application
+  [1m[36mCompany Load (0.5ms)[0m  [1m[34mSELECT "companies".* FROM "companies" ORDER BY symbol desc[0m
+  Rendered companies/index.html.erb within layouts/application (23.1ms)
+Completed 200 OK in 60ms (Views: 57.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-05 09:26:40 +1000
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 36ms (Views: 32.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-05 09:50:49 +1000
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 52ms (Views: 48.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2018-06-05 09:50:50 +1000
+Processing by CompaniesController#index as HTML
+  Rendering companies/index.html.erb within layouts/application
+  [1m[36mCompany Load (0.8ms)[0m  [1m[34mSELECT "companies".* FROM "companies" ORDER BY name desc[0m
+  Rendered companies/index.html.erb within layouts/application (40.8ms)
+Completed 200 OK in 95ms (Views: 64.0ms | ActiveRecord: 8.5ms)
+
+
