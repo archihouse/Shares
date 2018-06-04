@@ -1,3 +1,7 @@
 <h1>Edit Stock</h1>
 
-<%= render :partial => 'form' %>
+<%= render 'form', company: @company %>
+
+<%= link_to 'Show', @company %> |
+<%= link_to 'Back', companies_path %>
+</div>

@@ -1,5 +1,11 @@
 <h1><%= @index.name %></h1> <!-- Show name of Index at top of the page -->
 
 <ul> <!-- Create list of Index info -->
-  <li><p>Companies:  <%= @index.company.name %></p></li> <!-- Show companies within the index -->
 </ul>
+
+<% if @current_user.present? %>
+<div class="controls"> <!-- div class for edit and delete buttons -->
+  <%= link_to 'Edit Index', edit_index_path(@index) %> <!-- create link (link_to) to 'Edit Index' and sets connection to @index values to edit Index as necessary -->
+  <%= link_to 'Delete Index', @index, :method => 'delete', :data => { :confirm => 'Are you sure?' }%> <!-- create link (link_to) to 'Delete Index', runs 'delete' method on @index, then runs the confirmation question as a data event -->
+</div>
+<% end %>

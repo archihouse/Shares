@@ -13,12 +13,12 @@ class CompaniesController < ApplicationController
 
   end
 
-  def show
-  end
-
   # GET /company/new
   def new
     @company = Company.new
+  end
+
+  def edit
   end
 
   def result
@@ -37,11 +37,12 @@ class CompaniesController < ApplicationController
         @low = data["week52Low"]
         @ytd = data["ytdChange"] * 100
         @exchange = data["primaryExchange"]
+        @sector = data["sector"]
       # return companies
       list = Company.where("companyName" => @name)
         # redirect them to the show page for that company so they can add that company to the database from there
           @company = Company.create(:name => @name, :symbol => @symbol, :price => @price, :change => @change, :changepercentage => @changepercentage, :marketcap => @marketcap, :high => @high, :low => @low, :ytd => @ytd,
-            :exchange => @exchange)
+            :exchange => @exchange, :sector => @sector)
       end
 
     def hk_result
@@ -107,11 +108,16 @@ class CompaniesController < ApplicationController
     # DELETE /companies/1
     # DELETE /companies/1.json
     def destroy
-      @company.destroy
+      company = Company.find params[:id]
+      company.destroy
       respond_to do |format|
         format.html { redirect_to companies_url, notice: 'Company Deleted.' }
         format.json { head :no_content }
       end
+    end
+
+    def show
+      @company = Company.find params[:id]
     end
 
   private
@@ -121,7 +127,7 @@ class CompaniesController < ApplicationController
       end
 
       def company_params
-        params.require(:company).permit(:name, :symbol, :price, :change, :changepercentage, :marketcap, :high, :low, :ytd, :exchange, :index, :country)
+        params.require(:company).permit(:name, :symbol, :price, :change, :changepercentage, :marketcap, :high, :low, :ytd, :exchange, :index_id, :sector)
       end
 
       def sort_column

@@ -2,7 +2,6 @@
 
 <ul> <!-- Create list of Company info -->
   <li><p>Symbol:  <%= @company.symbol %></p></li> <!-- Show stock symbol of company -->
-  <li><p>Country:  <%= @company.country %></p></li> <!-- Show country home base of company -->
   <li><p>Price:  <%= @company.price %></p></li> <!-- Show company stock price -->
   <li><p>Day Price Change:  <%= @company.change %></p></li> <!-- Show company stock price daily change -->
   <li><p>Day Percentage Change:  <%= @company.changepercentage %></p></li> <!-- Show company stock price daily change -->
@@ -10,7 +9,14 @@
   <li><p>52 Week High:  <%= @company.high %></p></li> <!-- Show stock 52 week high price -->
   <li><p>52 Week Low:  <%= @company.low %></p></li> <!-- Show stock 52 week low price -->
   <li><p>YTD:  <%= @company.ytd %></p></li> <!-- Show stock YTD change -->
-  <li><p>Industry:  <%= @company.industry %></p></li> <!-- Show company industry -->
+  <li><p>Sector:  <%= @company.sector %></p></li> <!-- Show company industry -->
   <li><p>Exchange:  <%= @company.exchange %></p></li> <!-- Show company exchange -->
-  <li><p>Indices:  <%= @company.index.name %></p></li> <!-- Show company indices -->
+  <li><p>Indices:  <%= @company.index %></p></li> <!-- Show company indices -->
 </ul>
+
+<% if @current_user.present? %>
+<div class="controls"> <!-- div class for edit and delete buttons -->
+  <%= link_to 'Edit Stock', edit_company_path(@company) %> <!-- create link (link_to) to 'Edit Company' and sets connection to @company values to edit company as necessary -->
+  <%= link_to 'Delete Stock', @company, :method => 'delete', :data => { :confirm => 'Are you sure?' }%> <!-- create link (link_to) to 'Delete Company', runs 'delete' method on @company, then runs the confirmation question as a data event -->
+</div>
+<% end %>

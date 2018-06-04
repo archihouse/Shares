@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 20180520094245) do
     t.decimal "high"
     t.decimal "low"
     t.decimal "ytd"
-    t.string "industry"
+    t.string "sector"
     t.string "exchange"
     t.decimal "industry_id"
     t.datetime "created_at", null: false
