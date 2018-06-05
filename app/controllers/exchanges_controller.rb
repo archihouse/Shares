@@ -1,7 +1,9 @@
-def exchange
-  @exchanges = Exchange.all
-end
+class ExchangesController < ApplicationController
+  def index
+    @exchanges = Exchange.all
+  end
 
-def new
-  @exchange = Exchange.new
+  def show
+    @exchange = Exchange.find params[:id]
+  end
 end
